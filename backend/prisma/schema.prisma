@@ -19,8 +19,15 @@ model User {
   email         String      @unique
   name          String?
   password      String
-  products       Product[]
+  role         Roles       @default(buyer)
+  products      Product[]
   stauts        UserStatus  @default(active)
+}
+
+enum Roles {
+  sysadmin
+  seller
+  buyer
 }
 
 enum UserStatus {
